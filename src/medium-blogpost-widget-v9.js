@@ -86,14 +86,6 @@ a {
 }
 </style>
 <div class="medium-blogpost">
-<div class="medium-blogpost-author">
-  <div class="medium-blogpost-author-img">
-    
-  </div>
-  <div class="medium-blogpost-author-info">
-    
-  </div>
-</div>
 <div class="medium-blogpost-articles">
 </div>
 </div>
