@@ -36,7 +36,7 @@ template.innerHTML = `
 .medium-blogpost-articles {
   display: flex;
   flex-direction: column;
-  max-height: 300px;
+  max-height: 800px;
   overflow: auto;
 }
 a {
