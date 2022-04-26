@@ -127,6 +127,6 @@ class MediumBlogpost extends HTMLElement {
     }
 }
 
-customElements.define('medium-blogpost', MediumBlogpost, { extends: 'p' })
+customElements.define('medium-blogpost', MediumBlogpost)
 
-document.write("<p is='medium-blogpost' username='stop-clearcutting-ca'></p>");
+document.write("<medium-blogpost username='stop-clearcutting-ca'></medium-blogpost>");
