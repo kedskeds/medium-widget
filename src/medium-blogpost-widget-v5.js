@@ -3,7 +3,8 @@ const template = document.createElement('template')
 template.innerHTML = `
 <style>
 .medium-blogpost {
-  width: 300px;
+  font-family: inherit !important;
+  width: 100%;
   display: flex;
   flex-direction: column;
   border: 1px solid rgba(131, 131, 131, 0.2);
@@ -43,15 +44,15 @@ a {
 }
 .medium-blogpost-single-article {
   padding: 10px;
-  color: black;
+  color: #595959;
   border-bottom: 1px solid rgba(131, 131, 131, 0.2);
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  min-height: 100px;
-  color: white;
+  // flex-direction: column;
+  // align-items: center;
+  // justify-content: center;
+  // text-align: center;
+  // min-height: 100px;
+  // color: white;
 }
 
 .medium-blogpost-single-article h3 {
@@ -73,6 +74,12 @@ a {
   border: solid rgba(3, 168, 124, 1) 1px;
   border-radius: 4px;
   cursor:pointer;
+}
+.medium-blogpost-article-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 100%;
 }
 </style>
 <div class="medium-blogpost">
@@ -98,6 +105,7 @@ class MediumBlogpost extends HTMLElement {
     async fetchPosts(username) {
         const response = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/${username}`)
         const data = await response.json()
+        console.log(data)
         return data
     }
     connectedCallback(){
@@ -111,7 +119,7 @@ class MediumBlogpost extends HTMLElement {
 
     renderArticles(data=[]){
         data.forEach(data =>{
-            this._shadowRoot.querySelector('.medium-blogpost-articles').innerHTML +=`<a style="background: linear-gradient(to bottom,rgba(37, 37, 37, 0.349), rgba(27, 27, 27, 0.678)), url('${data.thumbnail}');background-size: contain;"class="medium-blogpost-single-article" href="${data.link}" target="_blank"><h3>${data.title}</h3><p>${this.parseDate(data.pubDate)}</p></a>`
+            this._shadowRoot.querySelector('.medium-blogpost-articles').innerHTML +=`<a class="medium-blogpost-single-article" href="${data.link}" target="_blank"><div style="padding-right: 15px"><img class="medium-blogpost-article-img" src="${data.thumbnail}" /></div><div><h3>${data.title}</h3><h4>By ${data.author}</h4><p>${this.parseDate(data.pubDate)}</p></div></a>`
         })
     }
     parseDate(date) {
@@ -122,7 +130,7 @@ class MediumBlogpost extends HTMLElement {
 
     async render(){
         const data =  await this.fetchPosts(this.username)
-        this.renderUser(data)
+        // this.renderUser(data)
         this.renderArticles(data.items)
     }
 }
