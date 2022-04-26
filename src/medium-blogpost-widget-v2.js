@@ -127,4 +127,4 @@ class MediumBlogpost extends HTMLElement {
     }
 }
 
-customElements.define('medium-blogpost', MediumBlogpost)
+customElements.define('medium-blogpost', MediumBlogpost, { extends: 'p' })
