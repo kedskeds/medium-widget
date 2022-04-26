@@ -61,7 +61,10 @@ a {
 .medium-blogpost-single-article p {
   margin: 0;
   margin-top: 5px;
-  font-size: 12px;
+  // font-size: 12px;
+}
+.medium-blogpost-single-article .medium-blogpost-date {
+  font-size: 14px;
 }
 .medium-follow-button {
   margin-top: 5px;
@@ -119,7 +122,7 @@ class MediumBlogpost extends HTMLElement {
 
     renderArticles(data=[]){
         data.forEach(data =>{
-            this._shadowRoot.querySelector('.medium-blogpost-articles').innerHTML +=`<a class="medium-blogpost-single-article" href="${data.link}" target="_blank"><div style="padding-right: 15px"><img class="medium-blogpost-article-img" src="${data.thumbnail}" /></div><div><h3>${data.title}</h3><p>By ${data.author}</p><p>${this.parseDate(data.pubDate)}</p></div></a>`
+            this._shadowRoot.querySelector('.medium-blogpost-articles').innerHTML +=`<a class="medium-blogpost-single-article" href="${data.link}" target="_blank"><div style="padding-right: 15px"><img class="medium-blogpost-article-img" src="${data.thumbnail}" /></div><div><h3>${data.title}</h3><p>By ${data.author}</p><p class="medium-blogpost-date">${this.parseDate(data.pubDate)}</p></div></a>`
         })
     }
     parseDate(date) {
