@@ -96,7 +96,7 @@ class MediumBlogpost extends HTMLElement {
         this._shadowRoot.appendChild(template.content.cloneNode(true)); 
     }
     async fetchPosts(username) {
-        const response = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@${username}`)
+        const response = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/${username}`)
         const data = await response.json()
         return data
     }
