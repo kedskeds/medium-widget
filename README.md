@@ -1,4 +1,3 @@
-<h1 align="center">Unofficial Medium Widget🌈</h1>
-<p align="center">Show off your medium articles on your blog!</p>
+<h2>Unofficial Medium Widget 🌈</h2>
 
-Try on [codepen](https://codepen.io/piyushsuthar/pen/NWNdoVd)
+Hardcoded to display blog posts for Sierra Club's ["Stop Clearcutting CA Campaign"](https://www.sierraclub.org/grassroots-network/stop-clearcutting-ca/blog). 
